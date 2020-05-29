@@ -1,12 +1,16 @@
 import React from "react"
 
-import Layout from "../components/layout"
+import Layout from "../components/Layout/Layout"
 import SEO from "../components/seo"
+
+// Mui stuff
+import Typography from "@material-ui/core/Typography"
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Home Page</h1>
+    <Typography variant="h4" component="h1" gutterBottom>
+      Book of the Day
+    </Typography>
   </Layout>
 )
 
