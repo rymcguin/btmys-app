@@ -88,8 +88,6 @@ const Book = ({ book, path }) => {
       <div style={{ textAlign: "center", margin: "20px" }}>
         <Link
           to={path}
-          //target="_blank"
-          //rel="noopener noreferrer"
           onClick={() => {
             ReactGA.event({
               category: "Amazon Link",
@@ -145,7 +143,7 @@ const Book = ({ book, path }) => {
         ))}
       </div>
       <div>
-        <Link to={path} className={classes.link}>
+        <Link to={`${path}/#Description`} className={classes.link}>
           <Typography variant="h6" style={{ fontWeight: 700, widthMax:"200px"}}>
             Description
           </Typography>
@@ -153,14 +151,14 @@ const Book = ({ book, path }) => {
         <Typography variant="body1">
           {`${book.description.substring(0, 250)}...`}
           <Link
-            to={path}
+            to={`${path}/#Description`}
             className={classes.readMore}
           >
             Read More
           </Link>
         </Typography>
       </div>
-      <Link to={path} className={classes.link}>
+      <Link to={`${path}/#Endorsements`} className={classes.link}>
         <Typography variant="h6" style={{ marginTop: "10px", fontWeight: 700 }}>
           Notable Endorsements
         </Typography>

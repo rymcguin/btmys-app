@@ -1,36 +1,36 @@
-import React, { useState } from "react"
-import Container from "@material-ui/core/Container"
-import Typography from "@material-ui/core/Typography"
-import Box from "@material-ui/core/Box"
+import React from "react"
+
 
 import Layout from "../components/layout"
 
 import SEO from "../components/seo"
 import { graphql, StaticQuery } from "gatsby"
 
-import Book from "../components/BOD/Book"
-import Card from "@material-ui/core/Card"
+import BookCard from "../components/BOD/BookCard"
 
-const IndexPage = ({ data }) => {
-  const books = data.allMarkdownRemark.edges.map(({ node }) => node.frontmatter)
-  const paths = data.allMarkdownRemark.edges.map(({ node }) => node.fields)
-  const numBooks = books.length - 1
-  const [bookId, setbookId] = useState(books[numBooks].bookID - 1)
-  const slug = paths[bookId].slug
-  const book = books[bookId]
-  
+
+const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Libarary" />
-      <div>
-
-      </div>
+      <StaticQuery
+        query={indexQuery}
+        render={data => {
+          return (
+            <div style={{display:'flex', flexWrap:'wrap',justifyContent:'center', paddingTop:'10px'}}>
+              {data.allMarkdownRemark.edges.map(({ node }) => (
+                <BookCard book={node.frontmatter} path={node.fields.slug} />
+              ))}
+            </div>
+          )
+        }}
+      />
     </Layout>
   )
 }
-export const data = graphql`
+const indexQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           id
@@ -46,9 +46,9 @@ export const data = graphql`
             authors {
               name
               title
-            }            
+            }
           }
-          fields{
+          fields {
             slug
           }
         }

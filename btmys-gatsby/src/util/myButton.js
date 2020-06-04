@@ -10,6 +10,7 @@ const useStyles = makeStyles (theme => ({
 
   button: {
     paddingLeft:'10px',
+    maxHeight:'30px'
   }
 
 }))

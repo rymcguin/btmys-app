@@ -9,17 +9,16 @@ import { graphql } from "gatsby"
 import Endorsement from "../components/BOD/Endorsement"
 import Layout from "../components/layout"
 
-
 const useStyles = makeStyles(theme => ({
   body: {
-    display:'flex',
+    display: "flex",
     maxWidth: "500px",
-    
+
     margin: "auto",
-    marginTop:'10px',
-    padding:'10px',
-    flexDirection:'column',
-    justifyContent: 'center'
+    marginTop: "10px",
+    padding: "10px",
+    flexDirection: "column",
+    justifyContent: "center",
   },
   link: {
     textDecoration: "none",
@@ -44,7 +43,7 @@ const SingleBook = ({ data }) => {
   return (
     <div>
       <React.Fragment>
-        <Layout style={{alignItems:'center'}}>
+        <Layout style={{ alignItems: "center" }}>
           <div className={classes.body}>
             <Typography variant="h6" color="primary">
               <a
@@ -89,7 +88,13 @@ const SingleBook = ({ data }) => {
                 }
               })}
             </Typography>
-            <div style={{ display:'flex', justifyContent:"space-around", margin: "20px" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                margin: "20px",
+              }}
+            >
               <a
                 href={book.amazonLink}
                 target="_blank"
@@ -104,7 +109,7 @@ const SingleBook = ({ data }) => {
                 <img
                   src={book.bookImageUrl}
                   alt="book cover"
-                  style={{ maxWidth:'300px' }}
+                  style={{ maxWidth: "300px" }}
                 />
               </a>
             </div>
@@ -130,7 +135,6 @@ const SingleBook = ({ data }) => {
                 Buy on Amazon
               </Button>
               <ShareButton path={slug} />
-
             </div>
             <div className={classes.tagContainer}>
               <Typography
@@ -149,26 +153,31 @@ const SingleBook = ({ data }) => {
                 />
               ))}
             </div>
-            <div>
-              <Typography variant= "h6" style={{ fontWeight: 700 }}>
-                Description
-              </Typography>
-              <Typography variant="body1">{book.description}</Typography>
-            </div>
-            
+            <a name="Description"></a>
+            <div></div>
+              <div>
+                <Typography variant="h6" style={{ fontWeight: 700 }}>
+                  Description
+                </Typography>
+                <Typography variant="body1">{book.description}</Typography>
+              </div>
+          
             <Typography
               variant="h6"
               style={{ marginTop: "10px", fontWeight: 700 }}
             >
               Notable Endorsements
             </Typography>
-            <div style={{display:'col', justifyContent:'center'}}>
-              {book.endorsements.map((endorsement, index) => (
-                
+            <a name="Endorsements">
+              <div
+                id="Endorsements"
+                style={{ display: "col", justifyContent: "center" }}
+              >
+                {book.endorsements.map((endorsement, index) => (
                   <Endorsement key={index} endorsement={endorsement} />
-              
-              ))}
-            </div>
+                ))}
+              </div>
+            </a>
           </div>
         </Layout>
       </React.Fragment>
