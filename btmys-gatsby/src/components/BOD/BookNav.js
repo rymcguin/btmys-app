@@ -13,8 +13,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const BookNav = ({ books, bookId, numBooks, setbookId }) => {
+const BookNav = ({ bookId, numBooks, setbookId, books }) => {
   const classes = useStyles();
+
+  // const handleNext = () => {
+  //   router.push(`/${books[index + 1].id}`);
+  // };
+
+  // const handlePrevious = () => {
+  //   router.push(`/${books[index - 1].id}`);
+  // };
+
   return (
     <div className={classes.root}>
       <Button

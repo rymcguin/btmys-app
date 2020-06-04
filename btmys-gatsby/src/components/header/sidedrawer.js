@@ -11,12 +11,16 @@ import ListItemText from "@material-ui/core/ListItemText";
 import MenuBookIcon from "@material-ui/icons/MenuBook";
 import GroupIcon from "@material-ui/icons/Group";
 import SearchIcon from "@material-ui/icons/Search";
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 
 const SideDrawer = ({ open, setOpen }) => {
 	const items = [
 	  { text: "Book of the Day", icon: <MenuBookIcon />, link: "/" },
-	  { text: "About Us", icon: <GroupIcon />, link: "/about" },
+	  { text: "Library", icon: <LibraryBooksIcon />, link: "/library" },
 	  { text: "Search Menu", icon: <SearchIcon />, link: "/search" },
+	  { text: "About Us", icon: <GroupIcon />, link: "/about" },
+	  
+	  
 	];
   
 	return (

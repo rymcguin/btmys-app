@@ -6,8 +6,8 @@ import Box from "@material-ui/core/Box"
 import Layout from "../components/layout"
 
 import SEO from "../components/seo"
-import { graphql } from "gatsby"
-import BookNav from "../components/BOD/BookNav"
+import { graphql, StaticQuery } from "gatsby"
+
 import Book from "../components/BOD/Book"
 import Card from "@material-ui/core/Card"
 
@@ -18,29 +18,12 @@ const IndexPage = ({ data }) => {
   const [bookId, setbookId] = useState(books[numBooks].bookID - 1)
   const slug = paths[bookId].slug
   const book = books[bookId]
+  
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Libarary" />
       <div>
-        <Container maxWidth="sm">
-          <Box my={4}>
-            <Card variant= 'outlined' style={{padding:'15px'}}>
-              <Typography variant="h4" component="h1" gutterBottom>
-                Book of the Day
-              </Typography>
-              <Typography variant="subtitle1" color="textSecondary">
-                {book.date}
-              </Typography>
-              <BookNav
-                bookId={bookId}
-                setbookId={setbookId}
-                numBooks={numBooks}
-                books={books}
-              />
-              <Book book={book} path={slug} />
-            </Card>
-          </Box>
-        </Container>
+
       </div>
     </Layout>
   )
@@ -62,19 +45,8 @@ export const data = graphql`
             amazonLink
             authors {
               name
-
               title
-
-            }
-            endorsements {
-
-              name
-
-              body
- 
-              title
-            }
-            
+            }            
           }
           fields{
             slug

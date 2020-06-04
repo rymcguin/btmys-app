@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Books That Make You Smarter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `One Book Recomendation Every Day`,
+    author: `Michael and Ryan McGuiness`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
