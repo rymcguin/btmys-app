@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header/header.js"
 import SideDrawer from "./header/sidedrawer"
-import { makeStyles } from "@material-ui/styles"
 
 const Layout = ({ children }) => {
   

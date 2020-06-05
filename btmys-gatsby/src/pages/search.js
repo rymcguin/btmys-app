@@ -3,12 +3,17 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const SearchPage = () => (
-  <Layout>
-    <SEO title="Search" />
-    <input type='text' placeholder="Enter Keyword"/>
-	<button>Search</button>
-  </Layout>
-)
+import SearchBox from '../components/Search/SearchBox'
+
+const SearchPage = () => {
+  
+  return (
+    <Layout>
+      <SEO title="Search" />
+      <SearchBox />
+      
+    </Layout>
+  )
+}
 
 export default SearchPage
