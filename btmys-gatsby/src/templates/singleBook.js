@@ -8,6 +8,7 @@ import ShareButton from "../util/shareButton"
 import { graphql } from "gatsby"
 import Endorsement from "../components/BOD/Endorsement"
 import Layout from "../components/layout"
+import {DiscussionEmbed} from 'disqus-react'
 
 const useStyles = makeStyles(theme => ({
   body: {
@@ -40,6 +41,17 @@ const SingleBook = ({ data }) => {
   const classes = useStyles()
   const book = data.markdownRemark.frontmatter
   const slug = data.markdownRemark.fields.slug
+  const baseurl = 'http://localhost:8000/'
+  const disqusShortname = 'https-booksthatmakeyousmarter-com'
+  const disqusConfig = {
+    identifier: data.markdownRemark.id,
+    title: book.bookTitle,
+    url: baseurl + slug
+
+  }
+
+
+
   return (
     <div>
       <React.Fragment>
@@ -179,6 +191,7 @@ const SingleBook = ({ data }) => {
               </div>
             </a>
           </div>
+          <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} style={{maxWidth:'800px', margin:'auto'}}/>
         </Layout>
       </React.Fragment>
     </div>
