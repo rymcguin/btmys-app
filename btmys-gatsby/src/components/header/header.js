@@ -17,7 +17,7 @@ const Header = ({ siteTitle, setOpen }) => {
             <MenuIcon />
           </IconButton>
           <Link href="/" style={{ color: "unset" }}>
-            <Typography variant='h6' style={{ marginLeft:'5px' }}>{siteTitle} + hello</Typography>
+            <Typography variant='h6' style={{ marginLeft:'5px' }}>{siteTitle}</Typography>
           </Link>
         </Toolbar>
       </AppBar>
