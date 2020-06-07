@@ -163,7 +163,7 @@ const Book = ({ book, path }) => {
           Notable Endorsements
         </Typography>
       </Link>
-      {book.endorsements.slice(0, 1).map((endorsement, index) => (
+      {book.endorsements.slice(0, 2).map((endorsement, index) => (
         <Endorsement key={index} endorsement={endorsement} />
       ))}
     </React.Fragment>

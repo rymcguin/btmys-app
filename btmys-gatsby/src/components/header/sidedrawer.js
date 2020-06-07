@@ -17,7 +17,7 @@ const SideDrawer = ({ open, setOpen }) => {
 	const items = [
 	  { text: "Book of the Day", icon: <MenuBookIcon />, link: "/" },
 	  { text: "Library", icon: <LibraryBooksIcon />, link: "/library" },
-	  { text: "Search Menu", icon: <SearchIcon />, link: "/search" },
+	//   { text: "Search Menu", icon: <SearchIcon />, link: "/search" },
 	  { text: "About Us", icon: <GroupIcon />, link: "/about" },
 	  
 	  

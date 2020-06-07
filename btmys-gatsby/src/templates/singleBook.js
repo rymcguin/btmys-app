@@ -41,7 +41,7 @@ const SingleBook = ({ data }) => {
   const classes = useStyles()
   const book = data.markdownRemark.frontmatter
   const slug = data.markdownRemark.fields.slug
-  const baseurl = 'http://localhost:8000/'
+  const baseurl = 'http://booksthatmakeyousmarter.com'
   const disqusShortname = 'https-booksthatmakeyousmarter-com'
   const disqusConfig = {
     identifier: data.markdownRemark.id,
