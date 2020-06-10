@@ -1,11 +1,11 @@
 import React from "react"
-import { Link } from "gatsby"
+//import { Link } from "gatsby"
 // Mui stuff
-import { makeStyles, responsiveFontSizes } from "@material-ui/core/styles"
+import { makeStyles } from "@material-ui/core/styles"
 import Typography from "@material-ui/core/Typography"
 import Card from "@material-ui/core/Card"
 import CardContent from "@material-ui/core/CardContent"
-import CardMedia from "@material-ui/core/CardMedia"
+// import CardMedia from "@material-ui/core/CardMedia"
 //Components
 import ShareButton from "../../util/ShareButton"
 
@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
   cover: {
     height: "150px",
   },
-  share: {
+  sharecopy: {
     display: "flex",
     justifyContent: "flex-end",
   },
@@ -55,11 +55,13 @@ const BookCard = ({ book, path }) => {
   const classes = useStyles()
   return (
     <Card variant="outlined" className={classes.root}>
-      <img
-        className={classes.cover}
-        src={`${book.bookImageUrl}`}
-        alt="Book cover"
-      />
+      <a href={path} className={classes.link}>
+        <img
+          className={classes.cover}
+          src={`${book.bookImageUrl}`}
+          alt="Book cover"
+        />
+      </a>
 
       <CardContent className={classes.content}>
         <div
@@ -70,8 +72,8 @@ const BookCard = ({ book, path }) => {
             width: "180px",
           }}
         >
-          <div className={classes.details}>
-            <Link to={path} className={classes.link}>
+          <a href={path} className={classes.link}>
+            <div className={classes.details}>
               <Typography variant="body1" className={classes.title}>
                 {book.bookTitle}
               </Typography>
@@ -88,10 +90,10 @@ const BookCard = ({ book, path }) => {
                   }
                 })}
               </Typography>
-            </Link>
-          </div>
-          <div className={classes.share}>
-            <ShareButton path={path} variant="contained" />
+            </div>
+          </a>
+          <div className={classes.sharecopy}>
+            <ShareButton path={`/${path}`} variant="contained" />
           </div>
         </div>
       </CardContent>

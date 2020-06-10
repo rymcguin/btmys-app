@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography"
 import Chip from "@material-ui/core/Chip"
 import Button from "@material-ui/core/Button"
 import ShareButton from "../../util/shareButton"
-import { Link } from "gatsby"
+//import { Link } from "gatsby"
 
 // Components
 import Endorsement from "./Endorsement"
@@ -43,11 +43,9 @@ const Book = ({ book, path }) => {
   return (
     <React.Fragment>
       <Typography variant="h6" color="primary">
-        <Link
-          to={path}
+        <a
+          href={path}
           className={classes.link}
-          // target="_blank"
-          // rel="noopener noreferrer"
           onClick={() => {
             ReactGA.event({
               category: "Amazon Link",
@@ -56,7 +54,7 @@ const Book = ({ book, path }) => {
           }}
         >
           {book.bookTitle}
-        </Link>
+        </a>
       </Typography>
       <Typography variant="body1">
         by{" "}
@@ -86,8 +84,8 @@ const Book = ({ book, path }) => {
         })}
       </Typography>
       <div style={{ textAlign: "center", margin: "20px" }}>
-        <Link
-          to={path}
+        <a
+          href={path}
           onClick={() => {
             ReactGA.event({
               category: "Amazon Link",
@@ -100,7 +98,7 @@ const Book = ({ book, path }) => {
             alt="book cover"
             style={{ height: "300px" }}
           />
-        </Link>
+        </a>
       </div>
       <div
         style={{
@@ -143,26 +141,26 @@ const Book = ({ book, path }) => {
         ))}
       </div>
       <div>
-        <Link to={`${path}/#Description`} className={classes.link}>
+        <a href={`${path}/#Description`} className={classes.link}>
           <Typography variant="h6" style={{ fontWeight: 700, widthMax:"200px"}}>
             Description
           </Typography>
-        </Link>
+        </a>
         <Typography variant="body1">
           {`${book.description.substring(0, 250)}...`}
-          <Link
-            to={`${path}/#Description`}
+          <a
+            href={`${path}/#Description`}
             className={classes.readMore}
           >
             Read More
-          </Link>
+          </a>
         </Typography>
       </div>
-      <Link to={`${path}/#Endorsements`} className={classes.link}>
+      <a href={`${path}/#Endorsements`} className={classes.link}>
         <Typography variant="h6" style={{ marginTop: "10px", fontWeight: 700 }}>
           Notable Endorsements
         </Typography>
-      </Link>
+      </a>
       {book.endorsements.slice(0, 2).map((endorsement, index) => (
         <Endorsement key={index} endorsement={endorsement} />
       ))}

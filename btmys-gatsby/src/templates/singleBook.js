@@ -8,7 +8,7 @@ import ShareButton from "../util/shareButton"
 import { graphql } from "gatsby"
 import Endorsement from "../components/BOD/Endorsement"
 import Layout from "../components/layout"
-import {DiscussionEmbed} from 'disqus-react'
+import { DiscussionEmbed } from "disqus-react"
 
 const useStyles = makeStyles(theme => ({
   body: {
@@ -41,17 +41,13 @@ const SingleBook = ({ data }) => {
   const classes = useStyles()
   const book = data.markdownRemark.frontmatter
   const slug = data.markdownRemark.fields.slug
-  const baseurl = 'http://booksthatmakeyousmarter.com'
-  const disqusShortname = 'https-booksthatmakeyousmarter-com'
+  const baseurl = "http://booksthatmakeyousmarter.com"
+  const disqusShortname = "https-booksthatmakeyousmarter-com"
   const disqusConfig = {
     identifier: data.markdownRemark.id,
     title: book.bookTitle,
-    url: baseurl + slug
-
+    url: baseurl + slug,
   }
-
-
-
   return (
     <div>
       <React.Fragment>
@@ -146,7 +142,7 @@ const SingleBook = ({ data }) => {
               >
                 Buy on Amazon
               </Button>
-              <ShareButton path={slug} />
+              <ShareButton path={`/${slug}`} />
             </div>
             <div className={classes.tagContainer}>
               <Typography
@@ -165,33 +161,36 @@ const SingleBook = ({ data }) => {
                 />
               ))}
             </div>
-            <a name="Description"></a>
-            <div></div>
-              <div>
-                <Typography variant="h6" style={{ fontWeight: 700 }}>
-                  Description
-                </Typography>
-                <Typography variant="body1">{book.description}</Typography>
-              </div>
-          
+
+            <div name="Description">
+              <Typography variant="h6" style={{ fontWeight: 700 }}>
+                Description
+              </Typography>
+              <Typography variant="body1">{book.description}</Typography>
+            </div>
+
             <Typography
               variant="h6"
               style={{ marginTop: "10px", fontWeight: 700 }}
             >
               Notable Endorsements
             </Typography>
-            <a name="Endorsements">
-              <div
-                id="Endorsements"
-                style={{ display: "col", justifyContent: "center" }}
-              >
-                {book.endorsements.map((endorsement, index) => (
-                  <Endorsement key={index} endorsement={endorsement} />
-                ))}
-              </div>
-            </a>
+
+            <div
+              id="Endorsements"
+              
+              style={{ display: "col", justifyContent: "center" }}
+            >
+              {book.endorsements.map((endorsement, index) => (
+                <Endorsement key={index} endorsement={endorsement} />
+              ))}
+            </div>
           </div>
-          <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} style={{maxWidth:'800px', margin:'auto'}}/>
+          <DiscussionEmbed
+            shortname={disqusShortname}
+            config={disqusConfig}
+            style={{ maxWidth: "800px", margin: "auto" }}
+          />
         </Layout>
       </React.Fragment>
     </div>
