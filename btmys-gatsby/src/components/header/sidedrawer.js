@@ -10,7 +10,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 //icons
 import MenuBookIcon from "@material-ui/icons/MenuBook";
 import GroupIcon from "@material-ui/icons/Group";
-import SearchIcon from "@material-ui/icons/Search";
+//import SearchIcon from "@material-ui/icons/Search";
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 
 const SideDrawer = ({ open, setOpen }) => {
