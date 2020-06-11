@@ -48,6 +48,7 @@ const SingleBook = ({ data }) => {
     title: book.bookTitle,
     url: baseurl + slug,
   }
+
   return (
     <div>
       <React.Fragment>
@@ -142,7 +143,7 @@ const SingleBook = ({ data }) => {
               >
                 Buy on Amazon
               </Button>
-              <ShareButton path={`/${slug}`} />
+              <ShareButton path={slug} />
             </div>
             <div className={classes.tagContainer}>
               <Typography
@@ -162,7 +163,7 @@ const SingleBook = ({ data }) => {
               ))}
             </div>
 
-            <div name="Description">
+            <div>
               <Typography variant="h6" style={{ fontWeight: 700 }}>
                 Description
               </Typography>
@@ -178,7 +179,6 @@ const SingleBook = ({ data }) => {
 
             <div
               id="Endorsements"
-              
               style={{ display: "col", justifyContent: "center" }}
             >
               {book.endorsements.map((endorsement, index) => (
