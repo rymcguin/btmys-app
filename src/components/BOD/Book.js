@@ -6,47 +6,25 @@ import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
 import Chip from "@material-ui/core/Chip";
 import Button from "@material-ui/core/Button";
-import ShareButton from "../../util/shareButton";
-//import { Link } from "gatsby"
 
 // Components
 import Endorsement from "./Endorsement";
-// import ShareButton from "../Util/ShareButton";
-
-const useStyles = makeStyles((theme) => ({
-  link: {
-    textDecoration: "none",
-    color: "#000000",
-    "&:hover": {
-      textDecoration: "underline",
-    },
-  },
-  readMore: {
-    textDecoration: "underline",
-    fontWeight: 500,
-    color: "#000000",
-    "&:hover": {
-      fontWeight: 700,
-    },
-  },
-  tagContainer: {
-    display: "flex",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    margin: "10px 0",
-    flexWrap: "wrap",
-  },
-}));
+import ShareButton from "../../util/shareButton";
 
 const Book = ({ book, path }) => {
-  const classes = useStyles();
   return (
     <div>
       {" "}
       <Typography variant="h6" color="primary">
         <a
           href={path}
-          className={classes.link}
+          style={{
+            textDecoration: "none",
+            color: "#000000",
+            "&:hover": {
+              textDecoration: "underline",
+            },
+          }}
           // target="_blank"
           // rel="noopener noreferrer"
           onClick={() => {
@@ -126,7 +104,15 @@ const Book = ({ book, path }) => {
         </Button>
         <ShareButton path={`/${path}`} />
       </div>
-      <div className={classes.tagContainer}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          margin: "10px 0",
+          flexWrap: "wrap",
+        }}
+      >
         <Typography
           variant="body1"
           style={{ fontWeight: 700, marginRight: "10px" }}
@@ -144,7 +130,16 @@ const Book = ({ book, path }) => {
         ))}
       </div>
       <div>
-        <a href={`${path}/#Description`} className={classes.link}>
+        <a
+          href={`${path}/#Description`}
+          style={{
+            textDecoration: "none",
+            color: "#000000",
+            "&:hover": {
+              textDecoration: "underline",
+            },
+          }}
+        >
           <Typography
             variant="h6"
             style={{ fontWeight: 700, widthMax: "200px" }}
@@ -154,12 +149,31 @@ const Book = ({ book, path }) => {
         </a>
         <Typography variant="body1">
           {`${book.description.substring(0, 250)}...`}
-          <a href={`${path}`} className={classes.readMore}>
+          <a
+            href={`${path}`}
+            style={{
+              textDecoration: "underline",
+              fontWeight: 500,
+              color: "#000000",
+              "&:hover": {
+                fontWeight: 700,
+              },
+            }}
+          >
             Read More
           </a>
         </Typography>
       </div>
-      <a href={`${path}`} className={classes.link}>
+      <a
+        href={`${path}`}
+        style={{
+          textDecoration: "none",
+          color: "#000000",
+          "&:hover": {
+            textDecoration: "underline",
+          },
+        }}
+      >
         <Typography variant="h6" style={{ marginTop: "10px", fontWeight: 700 }}>
           Notable Endorsements
         </Typography>

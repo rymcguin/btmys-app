@@ -3,33 +3,19 @@ import copy from "copy-to-clipboard";
 import PropTypes from "prop-types";
 
 // Mui stuff
-import { makeStyles } from "@material-ui/styles";
 import ReplyIcon from "@material-ui/icons/Reply";
 
 // Components
 import MyButton from "./myButton";
 import AlertModal from "./alertModal";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    
-  },
-  iconText: {
-    marginLeft: "10px",
-  },
-}));
 const getBaseUrl = () => {
-	const getUrl = window.location;
-	const baseUrl = getUrl.protocol + "/" + getUrl.host;
-	return baseUrl;
-  };
+  const getUrl = window.location;
+  const baseUrl = getUrl.protocol + "/" + getUrl.host;
+  return baseUrl;
+};
 
 const ShareButton = ({ path }) => {
-  const classes = useStyles();
   const [alertState, setAlertState] = useState({ open: false, message: "" });
   const handleLinkCopy = () => {
     copy(`${getBaseUrl()}${path}`);
@@ -37,10 +23,16 @@ const ShareButton = ({ path }) => {
   };
   return (
     <React.Fragment>
-      <MyButton tip="Share" variant='outlined' onClick={handleLinkCopy}>
-        <div className={classes.root}>
+      <MyButton tip="Share" variant="outlined" onClick={handleLinkCopy}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <ReplyIcon />
-          <span className={classes.iconText}>share</span>
+          <span style={{ marginLeft: "10px" }}>share</span>
         </div>
       </MyButton>
       <AlertModal
