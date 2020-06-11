@@ -19,6 +19,7 @@ const IndexPage = ({ data }) => {
   const slug = paths[bookId].slug
   const book = books[bookId]
   return (
+    <React.Fragment>
     <Layout>
       <SEO title="Home" />
       <div>
@@ -43,6 +44,7 @@ const IndexPage = ({ data }) => {
         </Container>
       </div>
     </Layout>
+    </React.Fragment>
   )
 }
 export const data = graphql`
