@@ -15,7 +15,6 @@ const useStyle = makeStyles(theme => ({
     display: "flex",
     margin: "auto",
     marginTop: "15px",
-
     maxWidth: "200px",
   },
   Select: {
