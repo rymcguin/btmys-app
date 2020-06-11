@@ -7,7 +7,7 @@ import Card from "@material-ui/core/Card"
 import CardContent from "@material-ui/core/CardContent"
 // import CardMedia from "@material-ui/core/CardMedia"
 //Components
-import ShareButton from "../../util/ShareButton"
+import ShareButton from "../../util/shareButton"
 
 const useStyles = makeStyles(theme => ({
   link: {
