@@ -27,12 +27,8 @@ const useStyle = makeStyles(theme => ({
 }))
 
 const Libarary = ({ data }) => {
-  let books = data.allMarkdownRemark.edges.map(({ node }) => node.frontmatter)
-  const paths = data.allMarkdownRemark.edges.map(({ node }) => node.fields)
-  const numBooks = books.length - 1
-  const bookId = books[numBooks].bookID - 1
-  const slug = paths[bookId].slug
   const classes = useStyle()
+  let books = data.allMarkdownRemark.edges.map(({ node }) => node.frontmatter)
   const [state, setState] = React.useState({
     books: books,
     select: "Most Recent",
