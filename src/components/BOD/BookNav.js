@@ -4,26 +4,17 @@ import React from "react";
 import { makeStyles } from "@material-ui/styles";
 import Button from "@material-ui/core/Button";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     margin: "15px 0",
   },
-}));
-
+}))
+ 
 const BookNav = ({ bookId, numBooks, setbookId, books }) => {
   const classes = useStyles();
-
-  // const handleNext = () => {
-  //   router.push(`/${books[index + 1].id}`);
-  // };
-
-  // const handlePrevious = () => {
-  //   router.push(`/${books[index - 1].id}`);
-  // };
-
   return (
     <div className={classes.root}>
       <Button
