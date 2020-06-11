@@ -59,7 +59,7 @@ const BookCard = ({ book, path }) => {
     <Card variant="outlined" className={classes.root}>
       <a href={path} className={classes.link}>
         <img
-          className={classes.cover}
+          style={{height: "150px", width:"100px"}}
           src={`${book.bookImageUrl}`}
           alt="Book cover"
         />
