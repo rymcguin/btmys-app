@@ -2,7 +2,6 @@ import React from "react";
 import ReactGA from "react-ga";
 
 // Mui stuff
-import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
 import Chip from "@material-ui/core/Chip";
 import Button from "@material-ui/core/Button";
@@ -13,8 +12,7 @@ import ShareButton from "../../util/shareButton";
 
 const Book = ({ book, path }) => {
   return (
-    <div>
-      {" "}
+    <React.Fragment>
       <Typography variant="h6" color="primary">
         <a
           href={path}
@@ -181,7 +179,7 @@ const Book = ({ book, path }) => {
       {book.endorsements.slice(0, 2).map((endorsement, index) => (
         <Endorsement key={index} endorsement={endorsement} />
       ))}
-    </div>
+    </React.Fragment>
   );
 };
 export default Book;
