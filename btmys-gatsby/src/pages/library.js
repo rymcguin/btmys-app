@@ -2,14 +2,13 @@ import React from "react"
 import InputLabel from "@material-ui/core/InputLabel"
 import FormControl from "@material-ui/core/FormControl"
 import NativeSelect from "@material-ui/core/NativeSelect"
-
 import Layout from "../components/layout"
-
 import SEO from "../components/seo"
-import { graphql, StaticQuery } from "gatsby"
-
+import { graphql } from "gatsby"
 import BookCard from "../components/BOD/BookCard"
 import { makeStyles } from "@material-ui/core"
+
+import { slugify } from "../util/utilityFunctions"
 
 const useStyle = makeStyles(theme => ({
   formControl: {
@@ -27,28 +26,78 @@ const useStyle = makeStyles(theme => ({
   },
 }))
 
-const IndexPage = () => {
+const Libarary = ({ data }) => {
+  let books = data.allMarkdownRemark.edges.map(({ node }) => node.frontmatter)
+  const paths = data.allMarkdownRemark.edges.map(({ node }) => node.fields)
+  const numBooks = books.length - 1
+  const bookId = books[numBooks].bookID - 1
+  const slug = paths[bookId].slug
   const classes = useStyle()
   const [state, setState] = React.useState({
+    books: books,
     select: "Most Recent",
   })
   const handleChange = event => {
+    switch (event.target.value) {
+      case "Most Recent":
+        books = books.sort()
+        break
+      case "Oldest":
+        books = books.reverse()
+        break
+      case "Title:A-Z":
+        books = books.sort(function (a, b) {
+          if (a.bookTitle < b.bookTitle) {
+            return -1
+          }
+          if (a.bookTitle > b.bookTitle) {
+            return 1
+          }
+          return 0
+        })
+        break
+      case "Title:Z-A":
+        books = books.sort(function (a, b) {
+          if (a.bookTitle < b.bookTitle) {
+            return 1
+          }
+          if (a.bookTitle > b.bookTitle) {
+            return -1
+          }
+          return 0
+        })
+        break
+      case "Author:A-Z":
+        books = books.sort(function (a, b) {
+          if (a.authors[0].name < b.authors[0].name) {
+            return -1
+          }
+          if (a.authors[0].name > b.authors[0].name) {
+            return 1
+          }
+          return 0
+        })
+        break
+      case "Author:Z-A":
+        books = books.sort(function (a, b) {
+          if (a.authors[0].name < b.authors[0].name) {
+            return 1
+          }
+          if (a.authors[0].name > b.authors[0].name) {
+            return -1
+          }
+          return 0
+        })
+        break
+      default:
+        break
+    }
     setState({
+      books: books,
       select: event.target.value,
     })
   }
-  switch(state.selext){
-    case 'Most Recent':
-      break;
-    case 'Oldest':
-      break;
-    case 'A-Z':
-      break;
-    case 'Z-A':
-      break;
-    default:
-      break;
-  }
+
   return (
     <Layout>
       <SEO title="Libarary" />
@@ -56,49 +105,33 @@ const IndexPage = () => {
         <InputLabel shrink htmlFor="age-native-label-placeholder">
           Sort By:
         </InputLabel>
-        <NativeSelect
-          value={state.select}
-          onChange={handleChange}
-          // inputProps={{
-          //   name: "age",
-          //   id: "age-native-label-placeholder",
-          // }}
-        >
+        <NativeSelect value={state.select} onChange={handleChange}>
           <option value={"Most Recent"}>Most Recent</option>
-          <option value={"Oldest"}>Oldest</option>
-          <option value={"A-Z"}>A-Z</option>
-          <option value={"Z-A"}>Z-A</option>
+          <option value={"Oldest"}>Oldest to New</option>
+          <option value={"Title:A-Z"}>Title: A-Z</option>
+          <option value={"Title:Z-A"}>Title: Z-A</option>
+          <option value={"Author:A-Z"}>Author: A-Z</option>
+          <option value={"Author:Z-A"}>Author: Z-A</option>
         </NativeSelect>
       </FormControl>
-      <StaticQuery
-        query={indexQuery}
-        render={data => {
-          return (
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "center",
-                paddingTop: "10px",
-              }}
-            >
-              {data.allMarkdownRemark.edges.map(({ node }) => (
-                <div key = {node.id}>
-                  <BookCard
-                    key={node.frontmatter.id}
-                    book={node.frontmatter}
-                    path={node.fields.slug}
-                  />
-                </div>
-              ))}
-            </div>
-          )
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          paddingTop: "10px",
         }}
-      />
+      >
+        {state.books.map((book, i) => (
+          <div key={i}>
+            <BookCard book={book} path={slugify(book.bookTitle)} />
+          </div>
+        ))}
+      </div>
     </Layout>
   )
 }
-const indexQuery = graphql`
+export const data = graphql`
   query {
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
@@ -109,13 +142,8 @@ const indexQuery = graphql`
             bookTitle
             date(formatString: "MMM Do, YYYY")
             bookImageUrl
-            socialMediaImageUrl
-            tags
-            description
-            amazonLink
             authors {
               name
-              title
             }
           }
           fields {
@@ -127,4 +155,4 @@ const indexQuery = graphql`
   }
 `
 
-export default IndexPage
+export default Libarary
