@@ -46,6 +46,8 @@ const Book = ({ book, path }) => {
         <a
           href={path}
           className={classes.link}
+          // target="_blank"
+          // rel="noopener noreferrer"
           onClick={() => {
             ReactGA.event({
               category: "Amazon Link",
