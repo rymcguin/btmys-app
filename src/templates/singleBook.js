@@ -143,7 +143,7 @@ const SingleBook = ({ data }) => {
               >
                 Buy on Amazon
               </Button>
-              <ShareButton path={slug} />
+              <ShareButton path={`/${slug}`} />
             </div>
             <div className={classes.tagContainer}>
               <Typography
