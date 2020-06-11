@@ -22,7 +22,7 @@ const IndexPage = ({ data }) => {
     <React.Fragment>
     <Layout>
       <SEO title="Home" />
-      <div>
+      <div style={{marginTop:'10px'}}>
         <Container maxWidth="sm">
           <Box my={4}>
             <Card variant= 'outlined' style={{padding:'15px'}}>
