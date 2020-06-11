@@ -35,6 +35,10 @@ const useStyles = makeStyles(theme => ({
     margin: "10px 0",
     flexWrap: "wrap",
   },
+  disqus: {
+    maxWidth: '500px',
+    margin: "auto"
+  }
 }))
 
 const SingleBook = ({ data }) => {
@@ -189,7 +193,7 @@ const SingleBook = ({ data }) => {
           <DiscussionEmbed
             shortname={disqusShortname}
             config={disqusConfig}
-            style={{ maxWidth: "800px", margin: "auto" }}
+            className ={classes.disqus}
           />
         </Layout>
       </React.Fragment>
