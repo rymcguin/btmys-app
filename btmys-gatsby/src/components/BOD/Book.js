@@ -151,14 +151,14 @@ const Book = ({ book, path }) => {
         <Typography variant="body1">
           {`${book.description.substring(0, 250)}...`}
           <a
-            href={`${path}/#Description`}
+            href={`${path}`}
             className={classes.readMore}
           >
             Read More
           </a>
         </Typography>
       </div>
-      <a href={`${path}/#Endorsements`} className={classes.link}>
+      <a href={`${path}`} className={classes.link}>
         <Typography variant="h6" style={{ marginTop: "10px", fontWeight: 700 }}>
           Notable Endorsements
         </Typography>
