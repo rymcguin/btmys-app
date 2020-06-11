@@ -9,7 +9,7 @@ import Box from "@material-ui/core/Box";
 const AboutPage = () => (
   <React.Fragment>
     <Layout>
-      <SEO title="About" />
+      <SEO title="About"  style={{marginTop:'10px'}}/>
       <title>About Us</title>
       <Container maxWidth="sm">
         <Box my={4}>

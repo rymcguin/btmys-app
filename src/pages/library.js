@@ -6,27 +6,11 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { graphql } from "gatsby";
 import BookCard from "../components/BOD/BookCard";
-import { makeStyles } from "@material-ui/core";
 
 import { slugify } from "../util/utilityFunctions";
 
-const useStyle = makeStyles((theme) => ({
-  formControl: {
-    display: "flex",
-    margin: "auto",
-    marginTop: "15px",
-    maxWidth: "200px",
-  },
-  Select: {
-    padding: "5px",
-    "&:last-child": {
-      paddingLeft: "5px",
-    },
-  },
-}));
 
 const Libarary = ({ data }) => {
-  const classes = useStyle();
   let books = data.allMarkdownRemark.edges.map(({ node }) => node.frontmatter);
   const [state, setState] = React.useState({
     books: books,
@@ -97,7 +81,14 @@ const Libarary = ({ data }) => {
     <React.Fragment>
       <Layout>
         <SEO title="Libarary" />
-        <FormControl className={classes.formControl}>
+        <FormControl
+          style={{
+            display: "flex",
+            margin: "auto",
+            marginTop: "15px",
+            maxWidth: "200px",
+          }}
+        >
           <InputLabel shrink htmlFor="age-native-label-placeholder">
             Sort By:
           </InputLabel>
