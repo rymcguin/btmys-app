@@ -44,6 +44,8 @@ const useStyles = makeStyles(theme => ({
   },
   cover: {
     height: "150px",
+    width:"100px",
+
   },
   sharecopy: {
     display: "flex",
