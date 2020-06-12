@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header/header.js"
 import SideDrawer from "./header/sidedrawer"
+import './layout.css'
 
 const Layout = ({ children }) => {
   
@@ -21,7 +22,7 @@ const Layout = ({ children }) => {
     <React.Fragment >
       <Header siteTitle={data.site.siteMetadata.title} setOpen={setOpen} />
       <SideDrawer open={open} setOpen={setOpen} />
-      <main>{children}</main>
+      <main >{children}</main>
     </React.Fragment>
   )
 }
