@@ -43,7 +43,10 @@ const useStyles = makeStyles(theme => ({
 
 const SingleBook = ({ data }) => {
   const classes = useStyles()
-  const baseurl = window.location.origin;
+  let baseurl ='https://www.booksthatmakeyousmarter.com/'
+  if(typeof window !== 'undefined'){
+    baseurl = (`${window.location.origin}/`);
+  }
   const book = data.markdownRemark.frontmatter
   const slug = data.markdownRemark.fields.slug
   const disqusShortname = "https-booksthatmakeyousmarter-com"

@@ -6,11 +6,13 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 
 //Components
-import ShareButton from "../../util/shareButton";
+import Button from "@material-ui/core/Button";
 
 const BookCard = ({ book, path }) => {
-  const baseURL = window.location.origin;
-  console.log(baseURL)
+  let baseURL = "https://www.booksthatmakeyousmarter.com/";
+  if (typeof window !== "undefined") {
+    baseURL = `${window.location.origin}/`;
+  }
   return (
     <Card
       variant="outlined"
@@ -100,7 +102,13 @@ const BookCard = ({ book, path }) => {
             </div>
           </a>
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
-            <ShareButton path={`${baseURL}/${path}`} variant="contained" />
+            <Button
+              href={`${baseURL}/${path}`}
+              variant="outlined"
+              style={{ fontSize: "12px", padding: "2px 8px" }}
+            >
+              Read More
+            </Button>
           </div>
         </div>
       </CardContent>
