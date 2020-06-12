@@ -43,9 +43,9 @@ const useStyles = makeStyles(theme => ({
 
 const SingleBook = ({ data }) => {
   const classes = useStyles()
+  const baseurl = window.location.origin;
   const book = data.markdownRemark.frontmatter
   const slug = data.markdownRemark.fields.slug
-  const baseurl = "http://booksthatmakeyousmarter.com"
   const disqusShortname = "https-booksthatmakeyousmarter-com"
   const disqusConfig = {
     identifier: data.markdownRemark.id,

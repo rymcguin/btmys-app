@@ -9,6 +9,8 @@ import CardContent from "@material-ui/core/CardContent";
 import ShareButton from "../../util/shareButton";
 
 const BookCard = ({ book, path }) => {
+  const baseURL = window.location.origin;
+  console.log(baseURL)
   return (
     <Card
       variant="outlined"
@@ -20,7 +22,7 @@ const BookCard = ({ book, path }) => {
       }}
     >
       <a
-        href={path}
+        href={`${baseURL}/${path}`}
         style={{
           textDecoration: "none",
           color: "#000000",
@@ -40,7 +42,7 @@ const BookCard = ({ book, path }) => {
         style={{
           display: "flex",
           padding: "15px",
-          "&:last-child": {
+          "&:lastChild": {
             paddingBottom: "15px",
           },
         }}
@@ -54,7 +56,7 @@ const BookCard = ({ book, path }) => {
           }}
         >
           <a
-            href={path}
+            href={`${baseURL}/${path}`}
             style={{
               textDecoration: "none",
               color: "#000000",
@@ -98,7 +100,7 @@ const BookCard = ({ book, path }) => {
             </div>
           </a>
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
-            <ShareButton path={`/${path}`} variant="contained" />
+            <ShareButton path={`${baseURL}/${path}`} variant="contained" />
           </div>
         </div>
       </CardContent>
