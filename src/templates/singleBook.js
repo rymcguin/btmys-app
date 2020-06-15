@@ -1,16 +1,16 @@
-import React from "react"
-import ReactGA from "react-ga"
-import { makeStyles } from "@material-ui/styles"
-import Typography from "@material-ui/core/Typography"
-import Chip from "@material-ui/core/Chip"
-import Button from "@material-ui/core/Button"
-import ShareButton from "../util/shareButton"
-import { graphql } from "gatsby"
-import Endorsement from "../components/BOD/Endorsement"
-import Layout from "../components/layout"
-import { DiscussionEmbed } from "disqus-react"
+import React from "react";
+import ReactGA from "react-ga";
+import { makeStyles } from "@material-ui/styles";
+import Typography from "@material-ui/core/Typography";
+import Chip from "@material-ui/core/Chip";
+import Button from "@material-ui/core/Button";
+import ShareButton from "../util/shareButton";
+import { graphql } from "gatsby";
+import Endorsement from "../components/BOD/Endorsement";
+import Layout from "../components/layout";
+import { DiscussionEmbed } from "disqus-react";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   body: {
     display: "flex",
     maxWidth: "500px",
@@ -36,31 +36,46 @@ const useStyles = makeStyles(theme => ({
     flexWrap: "wrap",
   },
   disqus: {
-    maxWidth: '500px',
-    margin: "auto"
-  }
-}))
+    maxWidth: "500px",
+    margin: "auto",
+  },
+}));
 
 const SingleBook = ({ data }) => {
-  const classes = useStyles()
-  let baseurl ='https://www.booksthatmakeyousmarter.com/'
-  if(typeof window !== 'undefined'){
-    baseurl = (`${window.location.origin}/`);
+  const classes = useStyles();
+  let baseurl = "https://www.booksthatmakeyousmarter.com/";
+  if (typeof window !== "undefined") {
+    baseurl = `${window.location.origin}/`;
   }
-  const book = data.markdownRemark.frontmatter
-  const slug = data.markdownRemark.fields.slug
-  const disqusShortname = "https-booksthatmakeyousmarter-com"
+  const book = data.markdownRemark.frontmatter;
+  const slug = data.markdownRemark.fields.slug;
+  const disqusShortname = "https-booksthatmakeyousmarter-com";
   const disqusConfig = {
     identifier: data.markdownRemark.id,
     title: book.bookTitle,
     url: baseurl + slug,
-  }
+  };
 
   return (
     <div>
       <React.Fragment>
         <Layout style={{ alignItems: "center" }}>
           <div className={classes.body}>
+            <meta
+              name="viewport"
+              content="initial-scale=1.0, width=device-width"
+            />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:site" content="@smarter_books" />
+            <meta
+              name="twitter:title"
+              content={`${book.date}: ${book.title}`}
+            />
+            <meta
+              name="twitter:description"
+              content={`${book.description.substring(0, 100)}...`}
+            />
+            <meta name="twitter:image" content={book.socialMediaImageUrl} />
             <Typography variant="h6" color="primary">
               <a
                 href={book.amazonLink}
@@ -71,7 +86,7 @@ const SingleBook = ({ data }) => {
                   ReactGA.event({
                     category: "Amazon Link",
                     action: "Title Link Clicked",
-                  })
+                  });
                 }}
               >
                 {book.bookTitle}
@@ -80,27 +95,27 @@ const SingleBook = ({ data }) => {
             <Typography variant="body1">
               by{" "}
               {book.authors.map((author, index) => {
-                const numAuthors = book.authors.length
+                const numAuthors = book.authors.length;
                 if (index === 0) {
                   return (
                     <span key={index} style={{ fontWeight: 700 }}>
                       {author.name}
                     </span>
-                  )
+                  );
                 } else if (index !== numAuthors - 1) {
                   return (
                     <span
                       key={index}
                       style={{ fontWeight: 700 }}
                     >{`, ${author.name}`}</span>
-                  )
+                  );
                 } else {
                   return (
                     <span
                       key={index}
                       style={{ fontWeight: 700 }}
                     >{` & ${author.name}`}</span>
-                  )
+                  );
                 }
               })}
             </Typography>
@@ -119,7 +134,7 @@ const SingleBook = ({ data }) => {
                   ReactGA.event({
                     category: "Amazon Link",
                     action: "Image Link Clicked",
-                  })
+                  });
                 }}
               >
                 <img
@@ -145,7 +160,7 @@ const SingleBook = ({ data }) => {
                   ReactGA.event({
                     category: "Amazon Link",
                     action: "'Buy on Amazon' Button Clicked",
-                  })
+                  });
                 }}
               >
                 Buy on Amazon
@@ -159,7 +174,7 @@ const SingleBook = ({ data }) => {
               >
                 Tags:
               </Typography>
-              {book.tags.map(tag => (
+              {book.tags.map((tag) => (
                 <Chip
                   key={tag}
                   color="primary"
@@ -196,13 +211,13 @@ const SingleBook = ({ data }) => {
           <DiscussionEmbed
             shortname={disqusShortname}
             config={disqusConfig}
-            className ={classes.disqus}
+            className={classes.disqus}
           />
         </Layout>
       </React.Fragment>
     </div>
-  )
-}
+  );
+};
 
 export const data = graphql`
   query bookPostbySlug($slug: String!) {
@@ -232,6 +247,6 @@ export const data = graphql`
       }
     }
   }
-`
+`;
 
-export default SingleBook
+export default SingleBook;
