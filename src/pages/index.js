@@ -75,14 +75,11 @@ export const data = graphql`
             amazonLink
             authors {
               name
-
               title
             }
             endorsements {
               name
-
               body
-
               title
             }
           }
