@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
   disqus: {
     maxWidth: "500px",
     margin: "auto",
+    padding:'10px'
   },
 }));
 
