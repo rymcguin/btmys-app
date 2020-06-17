@@ -24,7 +24,7 @@ const BookCard = ({ book, path }) => {
       }}
     >
       <a
-        href={`${baseURL}/${path}`}
+        href={`${baseURL}${path}`}
         style={{
           textDecoration: "none",
           color: "#000000",
@@ -58,7 +58,7 @@ const BookCard = ({ book, path }) => {
           }}
         >
           <a
-            href={`${baseURL}/${path}`}
+            href={`${baseURL}${path}`}
             style={{
               textDecoration: "none",
               color: "#000000",
@@ -103,7 +103,7 @@ const BookCard = ({ book, path }) => {
           </a>
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
             <Button
-              href={`${baseURL}/${path}`}
+              href={`${baseURL}${path}`}
               variant="outlined"
               style={{ fontSize: "12px", padding: "2px 8px" }}
             >
