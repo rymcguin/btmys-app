@@ -38,7 +38,7 @@ const IndexPage = ({ data }) => {
             <Box my={4}>
               <Card variant="outlined" style={{ padding: "15px" }}>
                 <Typography variant="h4" component="h1" gutterBottom>
-                  Book of the Day
+                  Book of the Week
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary">
                   {book.date}
