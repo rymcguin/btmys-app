@@ -67,7 +67,7 @@ export const data = graphql`
           frontmatter {
             bookID
             bookTitle
-            date(formatString: "MMM Do, YYYY")
+            date(formatString: "dddd MMM Do, YYYY")
             bookImageUrl
             socialMediaImageUrl
             tags

@@ -15,7 +15,7 @@ import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 
 const SideDrawer = ({ open, setOpen }) => {
 	const items = [
-	  { text: "Book of the Day", icon: <MenuBookIcon />, link: "/" },
+	  { text: "Book of the Week", icon: <MenuBookIcon />, link: "/" },
 	  { text: "Library", icon: <LibraryBooksIcon />, link: "/library" },
 	//   { text: "Search Menu", icon: <SearchIcon />, link: "/search" },
 	  { text: "About Us", icon: <GroupIcon />, link: "/about" },
