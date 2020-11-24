@@ -1,0 +1,56 @@
+{
+  "name": "btmys-gatsby",
+  "private": true,
+  "description": "",
+  "version": "0.1.0",
+  "author": "Ryan McGuiness <ryanmcguiness123@gmail.com>",
+  "dependencies": {
+    "@material-ui/core": "^4.10.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.55",
+    "@material-ui/styles": "^4.10.0",
+    "babel-plugin-styled-components": "^1.10.7",
+    "copy-to-clipboard": "^3.3.1",
+    "disqus-react": "^1.0.8",
+    "gatsby": "^2.21.37",
+    "gatsby-image": "^2.4.4",
+    "gatsby-plugin-manifest": "^2.4.5",
+    "gatsby-plugin-offline": "^3.2.3",
+    "gatsby-plugin-react-helmet": "^3.3.1",
+    "gatsby-plugin-sharp": "^2.6.4",
+    "gatsby-plugin-styled-components": "^3.3.4",
+    "gatsby-source-filesystem": "^2.3.4",
+    "gatsby-transformer-remark": "^2.8.13",
+    "gatsby-transformer-sharp": "^2.5.2",
+    "next": "^9.4.4",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-ga": "^2.7.0",
+    "react-helmet": "^6.0.0",
+    "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "prettier": "2.0.5"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rymcguin/btmys-app"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}
