@@ -60,7 +60,7 @@ const IndexPage = ({ data }) => {
 };
 export const data = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___bookID], order: ASC }) {
       edges {
         node {
           id
